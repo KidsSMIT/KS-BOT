@@ -1,6 +1,6 @@
 {
     "name": "ksbot",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "ChatBot for kids SMIT users",
     "main": "src/main.js",
     "scripts": {
@@ -28,7 +28,8 @@
     "config": {
         "forge": {
             "packagerConfig": {},
-            "makers": [{
+            "makers": [
+                {
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
                         "name": "KS-BOT"
@@ -49,18 +50,20 @@
                     "config": {}
                 }
             ],
-            "publishers": [{
-                "name": "@electron-forge/publisher-github",
-                "config": {
-                    "repository": {
-                        "owner": "codingwithcn",
-                        "name": "KS-BOT",
-                        "type": "git",
-                        "url": "https://github.com/KidsSMIT/KS-BOT.git"
-                    }
-                },
-                "draft": true
-            }]
+            "publishers": [
+                {
+                    "name": "@electron-forge/publisher-github",
+                    "config": {
+                        "repository": {
+                            "owner": "codingwithcn",
+                            "name": "KS-BOT",
+                            "type": "git",
+                            "url": "https://github.com/KidsSMIT/KS-BOT.git"
+                        }
+                    },
+                    "draft": true
+                }
+            ]
         }
     },
     "devDependencies": {

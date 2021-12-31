@@ -1,0 +1,122 @@
+span {
+    border-radius: 7px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    color: black;
+    z-index: 20;
+}
+
+.dropdown-content {
+    display: none;
+    position: sticky !important;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 21;
+}
+
+.hover {
+    display: inline-flex;
+    color: black;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    position: absolute;
+    overflow: hidden;
+    background-color: #333;
+    border: 1px solid black;
+    top: 0;
+    left: 0;
+    width: 99.8%;
+    z-index: 50;
+}
+
+.topnav span {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav span:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav span.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.dashSpan {
+    background-image: url('dash.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 53%;
+}
+
+.minimizeSpan {
+    background-image: url('minimize.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 53%;
+}
+
+.closeSpan {
+    background-image: url('close.png');
+    background-size: contain;
+    background-repeat: no repeat;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 53%;
+}
+
+.titleSpan {
+    position: relative;
+    left: 25%;
+}
+
+.opt_popup {
+    color: white;
+    background-color: #333;
+    display: none;
+    border-radius: 10px;
+    position: fixed;
+    top: 13%;
+    left: 25%;
+    z-index: 25;
+}
+
+.opt_popup div {
+    font-size: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 500px;
+    text-align: center;
+}
+
+#title_bar_button {
+    z-index: 25;
+}

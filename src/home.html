@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">-->
+    <link href="home.css" rel="stylesheet">
+    <title>KS-BOT</title>
+</head>
+
+<body>
+    <div id="loadingScreen">
+        <img src="loading.gif"> This might take a minute to load....
+    </div>
+    <div class="KS_BOT_DIV" id="KS_BOT_DIV">
+        <div class="KS_BOT_Border" id="KS_BOT_Border">
+            <img src="icon.png">
+        </div>
+        <div class="KS_BOT_Messages" id="KS_BOT_Messages">
+
+        </div>
+        <img src="typing.gif" id="typing_gif">
+        <div class="KS_BOT_Send_Messages" id="KS_BOT_Send_Messages ">
+            <input id="send_messages_input" type="text " placeholder="Send Message ">
+            <button id="send_messages_button">Send Message</button>
+        </div>
+    </div>
+</body>
+<script src='render.js'></script>
+<script src=" update_my_app.js "></script>
+<script src="socketio.js "></script>
+<script src="home.js "></script>
+
+</html>

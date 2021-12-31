@@ -1,0 +1,112 @@
+#loadingScreen {
+    display: none;
+    text-align: center;
+    font-size: 40px;
+}
+
+#loadingScreen img {
+    width: 90vw;
+}
+
+.KS_BOT_DIV,
+#loadingScreen {
+    margin-top: 10%;
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.KS_BOT_Border,
+#loadingScreen {
+    border: 1px solid gainsboro;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.KS_BOT_Border img {
+    width: 100px;
+    height: 100px;
+}
+
+.KS_BOT_Messages {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    height: 57vh;
+    overflow-y: auto;
+}
+
+.KS_BOT_Send_Messages {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.KS_BOT_Send_Messages input {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    width: 82%;
+}
+
+.KS_BOT_Send_Messages button {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    width: 15%;
+}
+
+.KS_BOT_Send_Messages button:hover {
+    border: 6px solid black;
+    border-top: none;
+    border-bottom: 5px solid black;
+    border-right: 2px;
+}
+
+.KS_BOT_Send_Messages button:active {
+    border: none;
+}
+
+.BotMessageContainer,
+.UserMessageContainer {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 15px;
+    width: 30%;
+    color: white;
+    font-size: 20px;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+.MessageDate {
+    font-style: italic;
+    color: black;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.UserMessageContainer {
+    display: block;
+    text-align: left;
+    margin-left: 67%;
+    background-color: #007FFF;
+}
+
+.BotMessageContainer {
+    background-color: green;
+}
+
+#typing_gif {
+    position: fixed;
+    width: 100px;
+    height: 40px;
+    bottom: 85px;
+    background-color: black;
+    color: black;
+    left: 30px;
+    display: none;
+}

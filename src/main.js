@@ -12,6 +12,7 @@ require(path.resolve(__dirname, "debug_console"))
 
 // Used to Debug Releases that won't have a console... Comment out when devloping
 
+
 const fs = require("fs");
 try {
     fs.unlinkSync(path.resolve(process.resourcesPath, "console.log"))
@@ -21,10 +22,43 @@ try {
 }
 
 // Uncomment this if you are not running in dev mode
-//console.file(path.resolve(process.resourcesPath, "console.log"));
+console.file(path.resolve(process.resourcesPath, "console.log"));
 
+const { KS, image } = require(path.join(__dirname, 'KS'));
 const db_func = require(path.join(__dirname, 'db'));
 
+db_func.does_db_exit_if_not_create()
+
+let cap = new KS(null, 'KS', null, 1300,
+    600, {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: true,
+    }, false)
+
+
+console.log(cap.add_child("KS", "index.html", true, (win) => { console.log("DONE") }, true));
+console.log(cap.add_child("Home", "home.html", true, function() { console.log("Added Home to ks") }));
+
+let run = () => {
+    cap.run()
+    autoUpdater.checkForUpdates();
+}
+
+ipcMain.on("login", (event, arg) => {
+    cap.user.create_user(arg.id, arg.name, arg.password)
+    cap.openWindow("Home");
+})
+
+ipcMain.on("LogInCredentials", (event, arg) => {
+    cap.currentWindow.webContents.send('hereIsCredentials', {
+        id: cap.user.id,
+        name: cap.user.name,
+        password: cap.user.password
+    })
+})
+
+// AutoUpdate Code
 ipcMain.on("quitAndInstall", (event, arg) => {
     autoUpdater.quitAndInstall();
 })
@@ -32,6 +66,8 @@ ipcMain.on("quitAndInstall", (event, arg) => {
 autoUpdater.on('update-downloaded', (info) => {
     cap.currentWindow.webContents.send('updateReady')
 });
+
+// End Of AutoUpdate Code
 
 app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
@@ -91,6 +127,9 @@ ipcMain.on("TDEVTOOLS", () => {
     let devtools = new BrowserWindow();
     cap.currentWindow.webContents.setDevToolsWebContents(devtools.webContents)
     cap.currentWindow.webContents.openDevTools({ mode: 'detach' });
+    cap.currentWindow.on("hide", function() {
+        devtools.close()
+    })
 })
 
 ipcMain.on("ZOOMIN", () => {

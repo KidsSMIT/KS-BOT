@@ -130,7 +130,7 @@ class Menu {
                     doc.onclick = this[i].click;
                     this[i].Parent = null;
                     let obj = this[i]
-                    console.log(obj)
+                        //console.log(obj)
                     doc.oncontextmenu = (ev) => {
                         ev.preventDefault()
                         if (document.getElementById("title_bar_article").children.length == 0) {

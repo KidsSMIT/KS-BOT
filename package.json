@@ -85,6 +85,7 @@
             "databaseFolder"
         ],
         "productName": "KS-Bot",
+        "publisher": "Kids SMIT",
         "copyright": "Copyright © 2021 ${author}",
         "linux": {
             "category": "Development",

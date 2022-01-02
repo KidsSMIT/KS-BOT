@@ -21,7 +21,7 @@ try {
     console.error(err)
 }
 
-// Uncomment this if you are not running in dev mode
+//Uncomment this if you are not running in dev mode
 console.file(path.resolve(process.resourcesPath, "console.log"));
 
 const { KS, image } = require(path.join(__dirname, 'KS'));
@@ -37,8 +37,8 @@ let cap = new KS(null, 'KS', null, 1300,
     }, false)
 
 
-console.log(cap.add_child("KS", "index.html", true, (win) => { console.log("DONE") }, true));
-console.log(cap.add_child("Home", "home.html", true, function() { console.log("Added Home to ks") }));
+console.log(cap.add_child("KS", "index.html", false, (win) => { console.log("DONE") }, true));
+console.log(cap.add_child("Home", "home.html", false, function() { console.log("Added Home to ks") }));
 
 let run = () => {
     cap.run()

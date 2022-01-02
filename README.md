@@ -27,12 +27,19 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 
 ### Available Commands:
 > Note: The sentence in quotations, is the actual command you will need to type
-- "What can you do" - Gives a randomize command of what KS-BOT can actually do
+- "What can you do" - Gives a randomize command of what KS-BOT can actually do.
+- "Tell me a joke" - Tells you a randomize joke from our jokes file.
+- "Translate <word> to pig latin" - Translate a word to pig latin.
+- "Translate <pig latin word> to english" -  Translates a pig latin word to english.
+- "Hello" - Greets you back.
+- "What is your name?" - Tells you its name and back story behind it.
+- "Who is your creator?" - A short reponse about its creator.
 
 # Important Changes
 - Adding of more commands and features for KS-BOT
 
 # Important Updates
+- "KS-Bot 1.2.0": Added node-fetch to the packaging process of app, in turn fixing last release starting up error.
 - "KS-Bot Official Release": First official release of KS-BOT, all it allows is back and forth communication between client and KS-BOT server
 
 # Changes Working On

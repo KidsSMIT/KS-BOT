@@ -101,7 +101,10 @@ class Controller {
         if (this.send_messages_input.value.length > 0) {
             this.socket_io.emit('process_new_message', {
                 session_id: this.user_id,
-                new_message: this.send_messages_input.value
+                new_message: {
+                    message: this.send_messages_input.value,
+                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                }
             });
         }
         this.send_messages_input.value = "";

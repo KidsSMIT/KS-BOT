@@ -752,10 +752,10 @@ app-builder-lib@22.10.5:
     semver "^7.3.4"
     temp-file "^3.3.7"
 
-app-builder-lib@22.14.11:
-  version "22.14.11"
-  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-22.14.11.tgz#b316db29bad1de39199ac0adf1cdb4460f3353e1"
-  integrity sha512-Z/dNHD60GYTrvYnOb3mrsiHnnl21PmC5/6XtdKS7tdQ5Rc7XENPU/l0LPNjvAptviUaJjOvuhrTyhbvuitOOWw==
+app-builder-lib@22.14.12:
+  version "22.14.12"
+  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-22.14.12.tgz#3bbb28eb4f73815cdaceceef969df6242d3c2a3d"
+  integrity sha512-viT518SIcNhy686Ovd/ayy3lD6m0Npv4FcN/2Z1pDiEMiSQFdA+ynDU9EYL5m/NOzRhbHUas8hd5dZahm2oEgw==
   dependencies:
     "7zip-bin" "~5.1.1"
     "@develar/schema-utils" "~2.6.5"
@@ -769,7 +769,7 @@ app-builder-lib@22.14.11:
     debug "^4.3.2"
     ejs "^3.1.6"
     electron-osx-sign "^0.5.0"
-    electron-publish "22.14.7"
+    electron-publish "22.14.12"
     form-data "^4.0.0"
     fs-extra "^10.0.0"
     hosted-git-info "^4.0.2"
@@ -1734,12 +1734,12 @@ ejs@^3.1.6:
   dependencies:
     jake "^10.6.1"
 
-electron-builder-squirrel-windows@^22.14.11:
-  version "22.14.11"
-  resolved "https://registry.yarnpkg.com/electron-builder-squirrel-windows/-/electron-builder-squirrel-windows-22.14.11.tgz#c7f8fc6c1847c65cccbbae8d3887010e232a1a60"
-  integrity sha512-fscXMrAkTEpspa3c0B7zIYg2OLI9VyYNq4fwvcmY/xquGqoiNOxzzf+clN1O2we73J1DqQizTFlyek0ZUmCObQ==
+electron-builder-squirrel-windows@^22.14.12:
+  version "22.14.12"
+  resolved "https://registry.yarnpkg.com/electron-builder-squirrel-windows/-/electron-builder-squirrel-windows-22.14.12.tgz#2c6a263c60a65b3739e8e98bfd4e01ec05abb724"
+  integrity sha512-XPznJUZ/3vp6/hRIcaLPpGZaYyXjgjSQdeSiHZWZkUiBxMbPAstunpZwyXaC4xi7OG03xcAf3+VD63iv2XSdbQ==
   dependencies:
-    app-builder-lib "22.14.11"
+    app-builder-lib "22.14.12"
     archiver "^5.3.0"
     builder-util "22.14.7"
     fs-extra "^10.0.0"
@@ -1868,10 +1868,10 @@ electron-publish@22.10.5:
     lazy-val "^1.0.4"
     mime "^2.5.0"
 
-electron-publish@22.14.7:
-  version "22.14.7"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-22.14.7.tgz#5fb3a4278fdb7873c5a282152b909fe9814a4102"
-  integrity sha512-sqZX/64k0B7sQeaDzFDE6m7r2zOtFgdmWAFnkv10bLlbHagkH9AkwwcjiGBpIto7mUBp89ntL7Ij5QFvldqI4Q==
+electron-publish@22.14.12:
+  version "22.14.12"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-22.14.12.tgz#d62dc0028be48b600c1c6251cf9b99fd47b64b2b"
+  integrity sha512-5xRe9ZgXIULv2fgj2XhX9Lg+lUqEy4F+8I7VDMAfOSseI7wyCUnq6QrcKID8wDgTP/td9ICF0oO37BC9he67rA==
   dependencies:
     "@types/fs-extra" "^9.0.11"
     builder-util "22.14.7"

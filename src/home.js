@@ -94,7 +94,7 @@ class Controller {
         return string
     }
 
-    /** 
+    /**
      * Sends message to server, to be proceessed by the bot
      */
     button_effect = () => {

@@ -34,6 +34,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - "Hello" - Greets you back.
 - "What is your name?" - Tells you its name and back story behind it.
 - "Who is your creator?" - A short reponse about its creator.
+- "Set an alarm for 8:40:00 AM" - To set an alram for 8:40:00 AM
 
 # Important Changes
 - Adding of more commands and features for KS-BOT

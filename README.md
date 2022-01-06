@@ -40,6 +40,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - Adding of more commands and features for KS-BOT
 
 # Important Updates
+- "KS-Bot 1.4.0": Allows for server to be able to track your time zone for accurate timers.
 - "KS-Bot 1.2.0": Added node-fetch to the packaging process of app, in turn fixing last release starting up error.
 - "KS-Bot Official Release": First official release of KS-BOT, all it allows is back and forth communication between client and KS-BOT server
 

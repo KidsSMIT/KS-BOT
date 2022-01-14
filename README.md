@@ -37,6 +37,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - "Set an alarm for 8:40:00 AM" - To set an alram for 8:40:00 AM
 
 # Important Changes
+- KS-Bot will now notify you on the client side when alarm is over, rather than just notifying you via email.
 - KS-Bot can now track timezone, during message request
 
 # Important Updates

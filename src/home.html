@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <audio preload="auto" style="display: none" id="alarm"> 
+        <source src="alarm.wav" type="audio/wav">
+    </audio>
     <div id="loadingScreen">
         <img src="loading.gif"> This might take a minute to load....
     </div>
@@ -29,6 +32,7 @@
 <script src='render.js'></script>
 <script src=" update_my_app.js "></script>
 <script src="socketio.js "></script>
+<script src="timer_notification.js"></script>
 <script src="home.js "></script>
 
 </html>

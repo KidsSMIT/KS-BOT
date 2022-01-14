@@ -110,3 +110,40 @@
     left: 30px;
     display: none;
 }
+
+.TimerEvents {
+    border: 1px solid gainsboro;
+    width: 80vw;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border-radius: 15px;
+    padding: 10px;
+    position: fixed;
+    top: 18%;
+    left: 7%;
+}
+
+.TimerEventsMessage {
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.TimerEventClose {
+    position: relative;
+    left: 40%;
+    font-size: 30px;
+    border: none;
+    color: white;
+    background-color: black;
+}
+
+.TimerEventClose:hover {
+    border: 1px solid gainsboro;
+    background-color: gainsboro;
+    color: black;
+}

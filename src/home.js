@@ -54,6 +54,20 @@ class Controller {
             this.typing_gif.style.display = "none";
             this.scrollToBottom(this.KS_BOT_Messages)
         })
+
+        this.socket_io.on("Timer Over", data => {
+            //console.log(data) // Tells you when your timer is over if your still connected to server
+            TimerEvents.create_timer(data.Timer, data.Message)
+            let message_data = {
+                bot_sent: true,
+                id: "RandomTimer",
+                message: data.Message,
+                date: data.date
+            }
+
+            this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
+            this.scrollToBottom(this.KS_BOT_Messages)
+        })
     }
 
     /**

@@ -38,6 +38,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - "What is the weather right now [ Optional: in < your desired location > ]" - Tells you the current weather in your timeZone as a whole that is if a locaiton is not specified. Side Note: We can not check the weather in your current location because we do not track user location.
 
 # Important Changes
+- KS-Bot can now more accurately search the web for the weather for your desired location.
 - KS-Bot will now notify you on the client side when alarm is over, rather than just notifying you via email.
 - KS-Bot can now track timezone, during message request
 

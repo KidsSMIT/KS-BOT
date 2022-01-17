@@ -28,8 +28,7 @@
     "config": {
         "forge": {
             "packagerConfig": {},
-            "makers": [
-                {
+            "makers": [{
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
                         "name": "KS-BOT"
@@ -50,20 +49,18 @@
                     "config": {}
                 }
             ],
-            "publishers": [
-                {
-                    "name": "@electron-forge/publisher-github",
-                    "config": {
-                        "repository": {
-                            "owner": "codingwithcn",
-                            "name": "KS-BOT",
-                            "type": "git",
-                            "url": "https://github.com/KidsSMIT/KS-BOT.git"
-                        }
-                    },
-                    "draft": true
-                }
-            ]
+            "publishers": [{
+                "name": "@electron-forge/publisher-github",
+                "config": {
+                    "repository": {
+                        "owner": "codingwithcn",
+                        "name": "KS-BOT",
+                        "type": "git",
+                        "url": "https://github.com/KidsSMIT/KS-BOT.git"
+                    }
+                },
+                "draft": true
+            }]
         }
     },
     "devDependencies": {
@@ -81,7 +78,7 @@
         "electron-squirrel-startup": "^1.0.0",
         "electron-updater": "^4.3.9",
         "sqlite3": "^5.0.2",
-        "node-fetch": "^3.1.0"
+        "node-fetch": "^2.6.6"
     },
     "build": {
         "extraResources": [

@@ -25,13 +25,6 @@ class Controller {
         // Typing gif
         this.typing_gif = document.getElementById("typing_gif");
 
-        document.body.addEventListener('click', event => {
-            if (event.target.tagName.toLowerCase() === 'a') {
-                event.preventDefault();
-                require("electron").shell.openExternal(event.target.href);
-            }
-        });
-
         this.socket_io.emit('launch_bot', { session_id: this.user_id });
 
         this.socket_io.on("WelcomeMessage", data => {

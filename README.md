@@ -35,16 +35,20 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - "What is your name?" - Tells you its name and back story behind it.
 - "Who is your creator?" - A short reponse about its creator.
 - "Set an alarm for 8:40:00 AM" - To set an alram for 8:40:00 AM
+- "What is the weather right now[Optional: in <location>]" - Tells you the current weather in your timeZone as a whole that is if a locaiton is not specified. Side Note: We can not check the weather in your current location because we do not track user location.
 
 # Important Changes
 - KS-Bot will now notify you on the client side when alarm is over, rather than just notifying you via email.
 - KS-Bot can now track timezone, during message request
 
 # Important Updates
+- "KS-Bot 1.7.0": This is a Batch release which main purpose was to fix the previous release error with node-fetch version. 
+  > DO NOT DOWNLOAD KS-BOT 1.6.0
 - "KS-Bot 1.5.0": Allows KS-Bot to notify you on the client side, when your timer is over
 - "KS-Bot 1.4.0": Allows for server to be able to track your time zone for accurate timers.
 - "KS-Bot 1.2.0": Added node-fetch to the packaging process of app, in turn fixing last release starting up error.
 - "KS-Bot Official Release": First official release of KS-BOT, all it allows is back and forth communication between client and KS-BOT server
 
 # Changes Working On
+- A better way to scrape the web for user weather
 - Adding of more commands and features for KS-BOT

@@ -9,7 +9,7 @@ class Controller {
         this.user_name = name;
         this.password = password;
         this.bot_id = null;
-        this.socket_io = io("https://ksbot.kidssmit.com");
+        this.socket_io = io(Config.debug_url);
 
         this.loading_div = document.getElementById("loadingScreen");
         this.main_div = document.getElementById("KS_BOT_DIV");

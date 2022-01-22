@@ -10,7 +10,7 @@ const ipcRenderer = electron.ipcRenderer;
 document.getElementById("SubmitLoginButton").onclick = function() {
     error_log.innerHTML = "Trying to Log you in..."
     if (name_input.value.length > 0 && password_input.value.length > 0) {
-        fetch("https://ksbot.kidssmit.com/does_user_exist", {
+        fetch(`${Config.debug_url}/does_user_exist`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },

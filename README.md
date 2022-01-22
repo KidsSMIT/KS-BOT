@@ -36,6 +36,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 - "Who is your creator?" - A short reponse about its creator.
 - "Set an alarm for 8:40:00 AM" - To set an alram for 8:40:00 AM
 - "What is the weather right now [ Optional: in < your desired location > ]" - Tells you the current weather in your timeZone as a whole that is if a locaiton is not specified. Side Note: We can not check the weather in your current location because we do not track user location.
+- "What is the news today [ Optional: about < your desired topic >, ] [ Optional: in < your desired location > ]" - Tells you recent news about a topic, in your timeZone that is if your desired location is not specified. Side Note: You will need to put a "," once you are done talking about your desired topic, without the comma we will not be able to tell what your desired topic is about. You will also need to put "about" before you can start talking about a topic. IF A TOPIC IS NOT SPECIFIED "the world" WILL BECOME THE DEFAULT TOPIC
 
 # Important Changes
 - KS-Bot can now more accurately search the web for the weather for your desired location.

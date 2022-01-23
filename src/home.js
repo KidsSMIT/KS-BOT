@@ -27,47 +27,11 @@ class Controller {
 
         this.socket_io.emit('launch_bot', { session_id: this.user_id });
 
-        this.socket_io.on("WelcomeMessage", data => {
-            this.go_to_loading_screen()
-            let message_datas = data.data;
-            let message_keys = Object.keys(message_datas);
-            let full_str = ""
-            for (let i in message_keys) {
-                let current_message = message_datas[message_keys[i]]
-                full_str += this.dict_to_str(current_message)
-            }
-            this.KS_BOT_Messages.innerHTML = full_str;
+        this.socket_io.on("WelcomeMessage", this._event_welcome_message)
 
-            this.remove_loading_screen();
+        this.socket_io.on("BotProcessReply", this._event_bot_process_reply)
 
-            this.send_messages_button.onclick = this.button_effect
-            this.scrollToBottom(this.KS_BOT_Messages)
-        })
-
-        this.socket_io.on("BotProcessReply", data => {
-            let full_str = ""
-            for (let i in data.data) {
-                let current_message = data.data[i];
-                full_str += this.dict_to_str(current_message);
-            }
-            this.KS_BOT_Messages.innerHTML += full_str
-            this.typing_gif.style.display = "none";
-            this.scrollToBottom(this.KS_BOT_Messages)
-        })
-
-        this.socket_io.on("Timer Over", data => {
-            //console.log(data) // Tells you when your timer is over if your still connected to server
-            TimerEvents.create_timer(data.Timer, data.Message)
-            let message_data = {
-                bot_sent: true,
-                id: "RandomTimer",
-                message: data.Message,
-                date: data.date
-            }
-
-            this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
-            this.scrollToBottom(this.KS_BOT_Messages)
-        })
+        this.socket_io.on("Timer Over", this._event_timer_over)
     }
 
     /**
@@ -112,6 +76,7 @@ class Controller {
      * Sends message to server, to be proceessed by the bot
      */
     button_effect = () => {
+        this.typing_gif.style.display = "block";
         if (this.send_messages_input.value.length > 0) {
             this.socket_io.emit('process_new_message', {
                 session_id: this.user_id,
@@ -122,7 +87,6 @@ class Controller {
             });
         }
         this.send_messages_input.value = "";
-        this.typing_gif.style.display = "block";
     }
 
     /**
@@ -132,10 +96,66 @@ class Controller {
     scrollToBottom = (node) => {
         node.scrollTop = node.scrollHeight;
     }
+
+
+    /**
+     * This function handles the welcome message socket_io event
+     * @param {Object.<string, Object>} data - Data sent by server in welcome message event
+     */
+    _event_welcome_message = (data) => {
+        this.go_to_loading_screen()
+        let message_datas = data.data;
+        let message_keys = Object.keys(message_datas);
+        let full_str = ""
+        for (let i in message_keys) {
+            let current_message = message_datas[message_keys[i]]
+            full_str += this.dict_to_str(current_message)
+        }
+        this.KS_BOT_Messages.innerHTML = full_str;
+
+        this.remove_loading_screen();
+
+        this.send_messages_button.onclick = this.button_effect
+        this.scrollToBottom(this.KS_BOT_Messages)
+    }
+
+    /**
+     * This function handles the BotProcessReply socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in BotProcessReply event
+     */
+    _event_bot_process_reply = (data) => {
+        let full_str = ""
+        for (let i in data.data) {
+            let current_message = data.data[i];
+            full_str += this.dict_to_str(current_message);
+        }
+        this.KS_BOT_Messages.innerHTML += full_str
+        this.typing_gif.style.display = "none";
+        this.scrollToBottom(this.KS_BOT_Messages)
+    }
+
+    /**
+     * This function handles the "Time Over" socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in Timer Over event
+     */
+    _event_timer_over = (data) => {
+        //console.log(data) // Tells you when your timer is over if your still connected to server
+        TimerEvents.create_timer(data.Timer, data.Message)
+        let message_data = {
+            bot_sent: true,
+            id: "RandomTimer",
+            message: data.Message,
+            date: data.date
+        }
+
+        this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
+        this.scrollToBottom(this.KS_BOT_Messages)
+    }
 }
 
 ipcRenderer.send('LogInCredentials')
 
 ipcRenderer.on('hereIsCredentials', (event, data) => {
-    control = new Controller(data.id, data.name, data.password)
+    // Changed to a global for easier access
+    window.KS_Bot_Controller = new Controller(data.id, data.name, data.password)
 })

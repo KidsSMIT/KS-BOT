@@ -15,7 +15,7 @@ var Config = {
      * Sets if to user the debug_url or production url, change to the right url
      * before you commit
      */
-    debug: true,
+    debug: false,
 
     /**
      * Returns the correct URL based on if you are in debug or not

@@ -9,7 +9,7 @@ class Controller {
         this.user_name = name;
         this.password = password;
         this.bot_id = null;
-        this.socket_io = io(Config.debug_url);
+        this.socket_io = io(Config.get_url());
 
         this.loading_div = document.getElementById("loadingScreen");
         this.main_div = document.getElementById("KS_BOT_DIV");
@@ -87,9 +87,9 @@ class Controller {
     }
 
     /**
-     * 
-     * @param {Object.<string, Object>} dicts - dicts 
-     * @returns {string} string
+     * Uses dicts to create a string HTMLElement that you can add to the page
+     * @param {Object.<string, Object>} dicts - data from server you would like to process  
+     * @returns {string} string of the HTMLElement
      */
     dict_to_str = (dicts) => {
         let string = `
@@ -126,6 +126,7 @@ class Controller {
     }
 
     /**
+     * Scrolls node scrollbar to the bottom of the node
      * @param {HTMLElement} node - Node you will like to scroll to the bottom of
      */
     scrollToBottom = (node) => {

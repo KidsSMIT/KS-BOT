@@ -38,6 +38,8 @@ class Controller {
 
         this.socket_io.on("Here is The Weather", this._event_here_is_the_weather);
 
+        this.socket_io.on("Here is The News", this._event_here_is_the_news);
+
         this.socket_io.on("SPEAK", this._event_speak)
     }
 
@@ -181,6 +183,22 @@ class Controller {
         let message_data = {
             bot_sent: true,
             id: "RandomWeatherEvent" + this.generate_random_id(),
+            message: data.Message,
+            date: data.date
+        }
+
+        this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
+        this.scrollToBottom(this.KS_BOT_Messages)
+    }
+
+    /**
+     * This function handles the "Here is the News" socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in "Here is the News" event
+     */
+    _event_here_is_the_news = (data) => {
+        let message_data = {
+            bot_sent: true,
+            id: "RandomNewsEvent" + this.generate_random_id(),
             message: data.Message,
             date: data.date
         }

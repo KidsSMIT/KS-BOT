@@ -81,7 +81,7 @@ let tray = null
 
 app.whenReady().then(() => {
     tray = new Tray(image.resize({ width: 600, height: 600 }))
-    tray.setTitle('Receipt App');
+    tray.setTitle('KS-Bot');
     run();
 })
 

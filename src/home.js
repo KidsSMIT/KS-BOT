@@ -25,13 +25,20 @@ class Controller {
         // Typing gif
         this.typing_gif = document.getElementById("typing_gif");
 
+        // Keeps a collection of all the randomly_generated_id for later user
+        this.randomly_generated_id = [];
+
         this.socket_io.emit('launch_bot', { session_id: this.user_id });
 
-        this.socket_io.on("WelcomeMessage", this._event_welcome_message)
+        this.socket_io.on("WelcomeMessage", this._event_welcome_message);
 
-        this.socket_io.on("BotProcessReply", this._event_bot_process_reply)
+        this.socket_io.on("BotProcessReply", this._event_bot_process_reply);
 
-        this.socket_io.on("Timer Over", this._event_timer_over)
+        this.socket_io.on("Timer Over", this._event_timer_over);
+
+        this.socket_io.on("Here is The Weather", this._event_here_is_the_weather);
+
+        this.socket_io.on("SPEAK", this._event_speak)
     }
 
     /**
@@ -97,6 +104,20 @@ class Controller {
         node.scrollTop = node.scrollHeight;
     }
 
+    /**
+     * Generate random id for what ever event div
+     * @return {String} randomly generate id
+     */
+    generate_random_id = () => {
+        let id = Math.random().toString(36).slice(2);
+
+        // We want to make sure all id's are unique
+        if (this.randomly_generated_id.includes(id)) { return this.generate_random_id() }
+
+        this.randomly_generated_id.push(id);
+
+        return id;
+    }
 
     /**
      * This function handles the welcome message socket_io event
@@ -140,16 +161,42 @@ class Controller {
      */
     _event_timer_over = (data) => {
         //console.log(data) // Tells you when your timer is over if your still connected to server
-        TimerEvents.create_timer(data.Timer, data.Message)
+        let mew_timer = TimerEvents.create_timer(data.Timer, data.Message)
         let message_data = {
             bot_sent: true,
-            id: "RandomTimer",
+            id: "RandomTimer" + mew_timer.id,
             message: data.Message,
             date: data.date
         }
 
         this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
         this.scrollToBottom(this.KS_BOT_Messages)
+    }
+
+    /**
+     * This function handles the "Here is the Weather" socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in "Here is the Weather" event
+     */
+    _event_here_is_the_weather = (data) => {
+        let message_data = {
+            bot_sent: true,
+            id: "RandomWeatherEvent" + this.generate_random_id(),
+            message: data.Message,
+            date: data.date
+        }
+
+        this.KS_BOT_Messages.innerHTML += this.dict_to_str(message_data)
+        this.scrollToBottom(this.KS_BOT_Messages)
+    }
+
+    /**
+     * This Function handles the Speak socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in Speak event
+     */
+    _event_speak = (data) => {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = data.what_to_speak;
+        window.speechSynthesis.speak(msg);
     }
 }
 

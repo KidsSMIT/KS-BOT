@@ -22,6 +22,7 @@ var TimerEvents = {
         new_timer_id = TimerEvents.generate_timer_id();
 
         TimerEvents.timers[new_timer_id] = {
+            id: new_timer_id,
             Timer: timer,
             Message: message
         }

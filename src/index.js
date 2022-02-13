@@ -10,7 +10,7 @@ const ipcRenderer = electron.ipcRenderer;
 document.getElementById("SubmitLoginButton").onclick = function() {
     error_log.innerHTML = "Trying to Log you in..."
     if (name_input.value.length > 0 && password_input.value.length > 0) {
-        fetch("https://ksbot.kidssmit.com/does_user_exist", {
+        fetch(`${Config.get_url()}/does_user_exist`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -29,4 +29,16 @@ document.getElementById("SubmitLoginButton").onclick = function() {
     } else {
         error_log.innerHTML = "Please fill out the feilds correctly"
     }
-}
+};
+
+/**
+ * A reactive way to login the user once they are done putting in there password
+ */
+password_input.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("SubmitLoginButton").click();
+    }
+})

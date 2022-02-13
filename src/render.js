@@ -377,7 +377,8 @@ class TitleBar {
      */
     go_to_home = () => {
         console.log("Go to home was clicked")
-        render.send("go_to_home")
+            //render.send("go_to_home") // We don't need this for real
+        shell.openExternal(Config.get_url())
     }
 
     /**
@@ -385,8 +386,8 @@ class TitleBar {
      */
     go_to_captalist = () => {
         console.log("Go to captalist was clicked")
-        console.log("Base Url is ", base_url)
-        shell.openExternal(base_url)
+        console.log("Base Url is ", Config.get_url())
+        shell.openExternal(Config.get_url())
     }
 }
 

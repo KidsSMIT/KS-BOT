@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 const path = require("path");
 
 db_func = require(path.join(__dirname, "db"));

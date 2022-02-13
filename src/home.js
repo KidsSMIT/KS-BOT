@@ -25,6 +25,8 @@ class Controller {
         // Typing gif
         this.typing_gif = document.getElementById("typing_gif");
 
+        this.smith_handler = SMITH_Handler.__init__(this.user_id) // S.M.I.T.H Voice Assitant
+
         // Keeps a collection of all the randomly_generated_id for later user
         this.randomly_generated_id = [];
 
@@ -40,7 +42,11 @@ class Controller {
 
         this.socket_io.on("Here is The News", this._event_here_is_the_news);
 
-        this.socket_io.on("SPEAK", this._event_speak)
+        this.socket_io.on("SPEAK", this._event_speak);
+
+        this.socket_io.on("Switch To Voice Assitant", this._event_switch_to_voice_assitant);
+
+        this.socket_io.on("Switch To Text Assitant", this._event_switch_to_text_assitant);
     }
 
     /**
@@ -147,14 +153,25 @@ class Controller {
      * @param {Object.<string, Object>} data - Data sent by the server in BotProcessReply event
      */
     _event_bot_process_reply = (data) => {
-        let full_str = ""
-        for (let i in data.data) {
-            let current_message = data.data[i];
-            full_str += this.dict_to_str(current_message);
+        if (data.return === "Success") {
+            let full_str = ""
+            for (let i in data.data) {
+                let current_message = data.data[i];
+                full_str += this.dict_to_str(current_message);
+            }
+            this.KS_BOT_Messages.innerHTML += full_str
+            this.typing_gif.style.display = "none";
+            this.scrollToBottom(this.KS_BOT_Messages)
+        }else {
+            this.socket_io.emit('launch_bot', { session_id: this.user_id });
+            this.socket_io.emit('process_new_message', {
+                session_id: this.user_id,
+                new_message: {
+                    message: data.message,
+                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                }
+            });
         }
-        this.KS_BOT_Messages.innerHTML += full_str
-        this.typing_gif.style.display = "none";
-        this.scrollToBottom(this.KS_BOT_Messages)
     }
 
     /**
@@ -215,6 +232,23 @@ class Controller {
         var msg = new SpeechSynthesisUtterance();
         msg.text = data.what_to_speak;
         window.speechSynthesis.speak(msg);
+    }
+
+    /**
+     * This Function handles the Switch To Voice Assitant socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in Switch to Voice Assitant event
+     */
+    _event_switch_to_voice_assitant = (data) => {
+        this.main_div.style.display = "none";
+        this.smith_handler.run()
+    }
+
+    /**
+     * This event handles the Switch To Text Assistant socket_io event
+     * @param {Object.<string, Object>} data - Data sent by the server in Switch To Text Assitant event
+     */
+    _event_switch_to_text_assitant = (data) => {
+        this.smith_handler.close()
     }
 }
 

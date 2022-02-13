@@ -41,7 +41,7 @@ console.log(cap.add_child("KS", "index.html", false, (win) => { console.log("DON
 console.log(cap.add_child("Home", "home.html", false, function() { console.log("Added Home to ks") }));
 
 let run = () => {
-    cap.run()
+    cap.run(() => {})
     autoUpdater.checkForUpdates();
 }
 

@@ -125,8 +125,9 @@ class KS {
     /**
      * Opens a window in class... If window is not in class, will not open
      * @param {string} name - Name of window you want to open
+     * @param {Function} callback - Function to call after process is complete, the function is optional
      */
-    openWindow = (name) => {
+    openWindow = (name, callback = function() {}) => {
         let keys = Object.keys(this.triggers);
         if (keys.includes(name)) {
             // This if statement means the window that your going to, is the currentWindow
@@ -135,8 +136,10 @@ class KS {
             this.triggers[name]();
             this.currentWindow = this.windows[name];
             this.currentWindow.show();
+            callback();
             return `${name} has been opened.`;
         }
+        callback();
         throw `${name} does not exist.`;
     }
 
@@ -147,8 +150,9 @@ class KS {
      * 
      * 
      * LOG IN PAGE SHOULD BE THE PARENT PAGE
+     * @param {Function} callback - Function to call when process is complete, this function is optional
      */
-    run = () => {
+    run = (callback = function () {} ) => {
         this.triggers[this.parent_name]()
         this.windows[this.parent_name] = this.parent;
         this.currentWindow = this.parent
@@ -157,7 +161,7 @@ class KS {
             if (row == undefined) { return }
 
             this.user.sign_in(row.server_id, row.name, row.password);
-            this.openWindow("Home")
+            this.openWindow("Home", callback)
         })
 
         return `Running ${this.parent_name} APP`

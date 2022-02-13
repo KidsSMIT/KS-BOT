@@ -1,6 +1,6 @@
 {
     "name": "ksbot",
-    "version": "1.7.0",
+    "version": "2.0.0",
     "description": "ChatBot for kids SMIT users",
     "main": "src/main.js",
     "scripts": {
@@ -21,7 +21,9 @@
         "demo",
         "Kids SMIT",
         "Bot",
-        "Chat"
+        "Chat",
+        "KS-BOT",
+        "app"
     ],
     "author": "Kids SMIT",
     "license": "CC-BY-NC-4.0",
@@ -80,8 +82,7 @@
         "electron-builder-squirrel-windows": "^22.14.12",
         "electron-squirrel-startup": "^1.0.0",
         "electron-updater": "^4.3.9",
-        "sqlite3": "^5.0.2",
-        "node-fetch": "^2.6.6"
+        "sqlite3": "^5.0.2"
     },
     "build": {
         "extraResources": [

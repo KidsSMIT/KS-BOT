@@ -63,7 +63,7 @@ KS-BOT is a AI-Powered Assitant for all Kids SMIT users, original developed by K
 
 # Credits
 ## Developers:
-- @codingwithcn is the main developer of the KS-BOT project
+- [@codingwithcn](https://github.com/codingwithcn) is the main developer of the KS-BOT project
 
 ## Modules:
 ### KS-BOT relies heavily on alot of modules so we would like to give thanks to the main ones like:

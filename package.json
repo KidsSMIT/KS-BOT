@@ -1,6 +1,6 @@
 {
     "name": "ksbot",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "ChatBot for kids SMIT users",
     "main": "src/main.js",
     "scripts": {

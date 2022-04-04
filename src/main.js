@@ -77,6 +77,15 @@ app.on('activate', () => {
     }
 });
 
+app.on('web-contents-created', (event, webContents) => {
+    webContents.on('select-bluetooth-device', (event, devices, callback) => {
+      // Prevent default behavior
+      event.preventDefault();
+      // Cancel the request
+      callback('');
+    });
+});
+
 let tray = null
 
 app.whenReady().then(() => {

@@ -79,7 +79,7 @@
         "electron-builder": "22.10.5"
     },
     "dependencies": {
-        "electron-builder-squirrel-windows": "^22.14.12",
+        "electron-builder-squirrel-windows": "^23.4.0",
         "electron-squirrel-startup": "^1.0.0",
         "electron-updater": "^4.3.9",
         "sqlite3": "^5.0.2"
